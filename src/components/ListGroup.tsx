@@ -1,7 +1,11 @@
 import { MouseEvent, useState } from "react";
 
-function ListGroup() {
-  let items = ["item 1", "item 2", "item 3", "item 4"];
+interface ListGroupProps {
+  items : string[];
+  heading: string;
+}
+
+function ListGroup({items, heading}: ListGroupProps) {
   // StateHook
   const [selectedIndex, setSelectedIndex] = useState (-1);
    // arr[0]variável (selectedIndex)
@@ -18,7 +22,7 @@ function ListGroup() {
   
   return (
     <>
-      <h1 className="title"> ListGroup </h1>
+      <h1 className="title"> {heading} </h1>
       {getMessage}
       <ul className="list-group">
         {items.map((item, index) => (
